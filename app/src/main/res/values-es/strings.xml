@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar">Calendar</string>
+    <string name="sample_name">Sample Name</string>
+    <string name="mail_example_com">mail@example.com</string>
+    <string name="archived">Archived</string>
+    <string name="no_title">Nota sin título</string>
+    <string name="note_title">Title</string>
+    <string name="note_text_body">Write a note text</string>
+    <string name="note_reminder_switch">Create reminder?</string>
+</resources>

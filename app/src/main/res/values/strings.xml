@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NotApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="calendar">Calendar</string>
+    <string name="sample_name">Sample Name</string>
+    <string name="mail_example_com">mail@example.com</string>
+    <string name="archived">Archived</string>
+    <string name="no_title">No title note</string>
+    <string name="note_title">Title</string>
+    <string name="note_text_body">Write a note text</string>
+    <string name="note_reminder_switch">Create reminder?</string>
+    <string name="note_reminder_date">Select a date</string>
+</resources>
