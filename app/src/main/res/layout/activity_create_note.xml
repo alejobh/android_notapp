@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -11,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:padding="10dp"
         >
 
         <EditText
@@ -20,6 +21,7 @@
             android:layout_weight="1"
             android:text=""
             android:hint="@string/note_title"
+            android:layout_margin="10dp"
             />
 
         <EditText
@@ -29,6 +31,7 @@
             android:layout_weight="3"
             android:text=""
             android:hint="@string/note_text_body"
+            android:layout_margin="10dp"
             />
 
         <LinearLayout
@@ -38,29 +41,41 @@
             android:orientation="horizontal"
             tools:context=".CreateNoteActivity"
             android:id="@+id/layoutAudio"
+            android:layout_margin="10dp"
             >
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Record"
-                android:textSize="20sp"
                 android:id="@+id/record"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_mic_white_24dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+
                 />
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stop"
-                android:textSize="20sp"
                 android:id="@+id/stop"
                 android:layout_below="@id/record"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_stop_black_24dp"
+                android:background="@android:color/holo_red_light"
+
                 />
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Play"
-                android:textSize="20sp"
                 android:id="@+id/play"
-                android:layout_below="@id/stop"
+                android:layout_weight="1"
+                android:src="@drawable/ic_play_arrow_black_24dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/holo_green_dark"
                 />
         </LinearLayout>
 
@@ -70,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/note_reminder_switch"
+            android:layout_margin="10dp"
             />
 
         <EditText
@@ -83,7 +99,9 @@
             android:clickable="true"
             android:maxLines="1"
             android:onClick="dateOnClick"
+            android:visibility="gone"
             android:hint="@string/note_reminder_date"
+            android:layout_margin="10dp"
             />
 
         <Button
@@ -94,7 +112,8 @@
             android:text="Save"
             android:onClick="saveNote"
             android:background="@color/colorPrimary"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -12,5 +12,5 @@
     <string name="note_title">Title</string>
     <string name="note_text_body">Write a note text</string>
     <string name="note_reminder_switch">Create reminder?</string>
-    <string name="note_reminder_date">Select a date</string>
+    <string name="note_reminder_date">Tap to select a date</string>
 </resources>

@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TimePicker;
@@ -49,7 +50,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private String typeCreate;
     private final String actionDoing = "Creating new";
     private LinearLayout audioLayout;
-    private Button play, stop, record;
+    private ImageButton play, stop, record;
     private MediaRecorder myAudioRecorder;
     private String fileRoute = "";
     private String outputFile = "";
@@ -107,6 +108,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                     }
                     record.setEnabled(false);
                     stop.setEnabled(true);
+                    record.setAlpha(.5f);
+                    stop.setAlpha(1f);
                     Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
                 }
             });
@@ -118,6 +121,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                     myAudioRecorder = null;
                     record.setEnabled(true);
                     stop.setEnabled(false);
+                    stop.setAlpha(.5f);
+                    record.setAlpha(1f);
                     play.setEnabled(true);
                     Toast.makeText(getApplicationContext(), "Audio Recorder stopped", Toast.LENGTH_LONG).show();
                 }
@@ -253,7 +258,15 @@ public class CreateNoteActivity extends AppCompatActivity {
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        reminderDate.setText(selectedDate+" "+hourOfDay + ":" + minute+":00");
+                        String hours = ""+hourOfDay;
+                        String minutes = ""+minute;
+                        if(hourOfDay<10){
+                            hours = "0"+hours;
+                        }
+                        if(minute<10){
+                            minutes = "0"+minutes;
+                        }
+                        reminderDate.setText(selectedDate+" "+hours + ":" + minutes+":00");
                     }
                 }, 0, 0, false);
         timePickerDialog.show();
