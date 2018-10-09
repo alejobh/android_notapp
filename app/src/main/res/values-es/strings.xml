@@ -8,4 +8,6 @@
     <string name="note_title">Title</string>
     <string name="note_text_body">Write a note text</string>
     <string name="note_reminder_switch">Create reminder?</string>
+    <string name="edit_menu">Edit</string>
+    <string name="delete_menu">Delete</string>
 </resources>

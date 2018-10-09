@@ -188,7 +188,7 @@ public class NotesDbAdapter {
     public Cursor fetchAllNotes() {
 
         return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE,
-                KEY_TEXT_BODY, KEY_REMINDER, KEY_ARCHIVED, KEY_TYPE, KEY_AUDIO_PATH}, null, null, null, null, null);
+                KEY_TEXT_BODY, KEY_REMINDER, KEY_ARCHIVED, KEY_TYPE, KEY_AUDIO_PATH}, null, null, null, null, KEY_CREATED_AT + " DESC");
     }
 
     /**

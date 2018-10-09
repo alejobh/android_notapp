@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.calendar) {
 
+
         } else if (id == R.id.archived) {
 
         }
@@ -154,7 +155,6 @@ public class MainActivity extends AppCompatActivity
     private void saveNoteText (String title, String text_body, String reminder) {
         NotesDbAdapter notesDbAdapter = new NotesDbAdapter(this);
         notesDbAdapter.open();
-        System.out.println("trying to save TITLE:"+title+" - BODY:"+text_body+" - REM:"+reminder);
         notesDbAdapter.createTextNote(title, text_body, reminder);
         notesDbAdapter.close();
     }
@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity
     private void saveNoteAudio(String title, String audioPath, String reminder) {
         NotesDbAdapter notesDbAdapter = new NotesDbAdapter(this);
         notesDbAdapter.open();
-        System.out.println("trying to save TITLE:"+title+" - PATH:"+audioPath+" - REM:"+reminder);
         notesDbAdapter.createAudioNote(title, audioPath, reminder);
         notesDbAdapter.close();
     }
@@ -204,6 +203,7 @@ public class MainActivity extends AppCompatActivity
         mAdapter.setmDataset(cursor);
         mAdapter.notifyDataSetChanged();
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

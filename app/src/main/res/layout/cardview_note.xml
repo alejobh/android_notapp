@@ -19,11 +19,8 @@
 
     </android.support.v7.widget.Toolbar>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/card_reminder"
-        android:layout_alignParentLeft="true"
-        android:text="Title"
         android:id="@+id/textTitle"
         android:textSize="30sp"
         android:textColor="@color/colorPrimary"
@@ -41,9 +38,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle"
-            android:text="Body"
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/card_text_body"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/notePlay"
+            android:layout_weight="1"
+            android:src="@drawable/ic_play_arrow_black_24dp"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:background="@android:color/holo_green_dark"
+            android:visibility="gone"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noteStop"
+            android:layout_below="@id/record"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_stop_black_24dp"
+            android:background="@android:color/holo_red_light"
+            android:visibility="gone"
+
+            />
+
     </LinearLayout>
 
     <TextView
