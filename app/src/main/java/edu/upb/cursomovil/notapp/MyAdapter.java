@@ -81,8 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId() == R.id.card_edit) {
-                    //paso ID
-                    System.out.println("edit ID: "+holder.idNote);
+                    Toast.makeText(holder.itemView.getContext(),"Edit of note ID: "+holder.idNote+" is not supported", Toast.LENGTH_LONG).show();
                 }
 
                 if(item.getItemId() == R.id.card_delete) {

@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -83,9 +84,10 @@ public class MainActivity extends AppCompatActivity
         btnAddNoteCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateNoteActivity.class);
+                /*Intent intent = new Intent(MainActivity.this, CreateNoteActivity.class);
                 intent.putExtra("TYPE", "image");
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 1);*/
+                Toast.makeText(v.getContext(),"Creating image notes is not supported", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -141,10 +143,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.calendar) {
-
+            Toast.makeText(this,"Not supported", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.archived) {
-
+            Toast.makeText(this,"Not supported", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

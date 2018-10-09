@@ -23,6 +23,9 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.File;
+import java.sql.SQLOutput;
+
 /**
  * Simple notes database access helper class. Defines the basic CRUD operations
  * for the notepad example, and gives the ability to list all notes as well as
@@ -176,8 +179,21 @@ public class NotesDbAdapter {
      * @return true if deleted, false otherwise
      */
     public boolean deleteNote(long rowId) {
+        Cursor cursor = this.fetchNote(rowId);
 
-        return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        if (cursor == null)
+            return false; // can't do anything with a null cursor.
+        try {
+            if(cursor.getString(cursor.getColumnIndex(KEY_TYPE)).equals("audio")){
+                String audio_path = cursor.getString(cursor.getColumnIndex(KEY_AUDIO_PATH));
+                File file = new File(audio_path);
+                file.delete();
+            }
+            return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        } finally {
+            cursor.close();
+            return false;
+        }
     }
 
     /**
@@ -198,19 +214,19 @@ public class NotesDbAdapter {
      * @return Cursor positioned to matching note, if found
      * @throws SQLException if note could not be found/retrieved
      */
-//    public Cursor fetchNote(long rowId) throws SQLException {
-//
-//        Cursor mCursor =
-//
-//                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-//                        KEY_TITLE, KEY_BODY}, KEY_ROWID + "= ? ", new String[]{rowId+""}, null,
-//                        null, null, null, null);
-//        if (mCursor != null) {
-//            mCursor.moveToFirst();
-//        }
-//        return mCursor;
-//
-//    }
+    public Cursor fetchNote(long rowId) throws SQLException {
+
+        Cursor mCursor =
+
+                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                        KEY_TYPE, KEY_AUDIO_PATH}, KEY_ROWID + "= ? ", new String[]{rowId+""}, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+
+    }
 
     /**
      * Update the note using the details provided. The note to be updated is
